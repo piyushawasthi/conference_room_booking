@@ -30,10 +30,10 @@ gem "kaminari"
 gem "kaminari-bootstrap"
 gem "rails_admin", github: "sferik/rails_admin"
 gem "underscore-rails"
+gem "factory_girl_rails"
+gem "faker", "1.4.2"
 
 group :development, :test do
-  gem "faker", "1.4.2"
-  gem "factory_girl_rails"
   gem "letter_opener"
   gem "byebug"
   gem "web-console", "~> 2.0"
