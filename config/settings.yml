@@ -1,0 +1,40 @@
+repeat_types:
+  week: "Weekly"
+  month: "Monthly"
+date_format: "%d/%m/%Y"
+time_format: "%H:%M"
+date_time_format: "%a, %d %b %Y %H:%M:%S"
+per_page: 2
+per_page_list_schedule: 10
+user_roles:
+  super_manager: "super_manager"
+  manager: "manager"
+  client: "client"
+  guest: "guest"
+max_avatar_file_size: 5
+rooms:
+  - name: "Australia 1"
+    color: "#D87093"
+  - name: "Australia 2"
+    color: "#20BA22"
+  - name: "Pacific"
+    color: "#008080"
+  - name: "Atlatic"
+    color: "#456321"
+announced_before:
+  "30 minutes": <%= 30.minutes %>
+  "1 hour":  <%= 1.hour %>
+kaminari:
+  total_pages: 4
+  window: 0
+schedule:
+  min_time: <%= 30.minutes %>
+  states:
+   - pending
+   - accepted
+   - rejected
+announced_upcoming: "announced_upcoming"
+invited: "invited"
+removed: "removed"
+announced_updated: "announced_updated"
+no_room: "-1"

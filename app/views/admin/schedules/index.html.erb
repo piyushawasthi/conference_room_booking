@@ -1,0 +1,22 @@
+<% provide :title, "List event" %>
+
+<h1>Manager Events</h1>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr class="table-col">
+      <th> Event </th>
+      <th width="100px"> Day </th>
+      <th width="80px"> Start </th>
+      <th width="80px"> Finish </th>
+      <th> User </th>
+      <th width="120px"> Room </th>
+      <th width="80px"> State </th>
+    </tr>
+  </thead>
+  <tbody class="schedule-index">
+    <%= render @schedules %>
+  </tbody>
+</table>
+
+<%= paginate @schedules %>

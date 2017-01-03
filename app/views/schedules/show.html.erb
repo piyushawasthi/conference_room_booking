@@ -1,0 +1,83 @@
+<% provide :title, t("schedules.show.title") %>
+
+<div class="form-actions btn-form" data-no-turbolink="true">
+  <%= link_to "", root_path, class: "btn btn-primary back-btn glyphicon glyphicon-arrow-left", title: t("button.title.back") %>
+  <% if can? :update, @schedule %>
+    <%= link_to t("button.edit"), edit_schedule_path(@schedule), class: "btn btn-primary btn-submit" %>
+  <% end %>
+  <% if can? :destroy, @schedule %>
+    <%= link_to t("button.delete"), schedule_path(@schedule), method: :delete, data: {confirm: t("button.confirm")}, class: "btn btn-danger btn-submit" %>
+  <% end %>
+</div>
+
+<div class="col-md-12 well">
+  <div class="col-md-12" style="padding-bottom: 20px">
+    <label class="col-md-2"><%= t("schedules.form.event_rest") %></label>
+    <div class="col-md-10">
+      <div class="col-md-12">
+        <div id="countdown"></div>
+        <%= hidden_field_tag "end-date", @schedule.finish_time.strftime(Settings.date_time_format) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12" style="padding-bottom: 20px">
+    <label class="col-md-2"><%= t("schedules.form.event_title") %></label>
+    <div class="col-md-10">
+      <div class="form-control"><b><%= @schedule.title %></b></div>
+    </div>
+  </div>
+
+  <div class="col-md-12" style="padding-bottom: 20px">
+    <label class="col-md-2"><%= t("schedules.form.start_time") %></label>
+    <div class="col-md-2">
+      <div class="form-control"><%= @schedule.start_time.strftime("%d/%m/%Y") %></div>
+
+    </div>
+    <div class="col-md-2">
+      <div class="form-control"><%= @schedule.start_time.strftime("%H:%M") %></div>
+    </div>
+      <label class="col-md-2"><%= t("schedules.form.finish_time") %></label>
+    <div class="col-md-2">
+      <div class="form-control"><%= @schedule.finish_time.strftime("%d/%m/%Y") %></div>
+    </div>
+      <div class="col-md-2">
+      <div class="form-control"><%= @schedule.finish_time.strftime("%H:%M") %></div>
+    </div>
+  </div>
+
+  <div class="col-md-12" style="padding-bottom: 20px">
+    <label class="col-md-2"><%= t("schedules.form.room") %></label>
+    <div class="col-md-10">
+      <div class="form-control">
+        <%= @schedule.room_name || t("shared.no_room_selected") %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12" style="padding-bottom: 20px">
+    <label class="col-md-2"><%= t("schedules.form.create_by") %></label>
+    <div class="col-md-10">
+      <div class="form-control"><%= @schedule.user.name %></div>
+    </div>
+  </div>
+
+  <div class="col-md-12" style="padding-bottom: 20px">
+    <label class="col-md-2"><%= t("schedules.form.description") %></label>
+    <div class="col-md-10">
+      <div class="form-control"><%= @schedule.description %></div>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <label class="col-md-2"><%= t("schedules.form.members") %></label>
+    <div class="col-md-10">
+      <% @schedule.members.each do |member| %>
+        <div class="col-md-6" style="padding-bottom: 5px">
+          <%= image_tag "default-user.png", size: "20x20", alt: "Member", class: "img-rounded" %>
+          <%= member.name %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

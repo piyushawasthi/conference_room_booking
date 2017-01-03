@@ -1,0 +1,7 @@
+<h1><%= @subject %></h1>
+<p>Hi, <%= @member.name %></p>
+<p>
+  This is invitation take part to event from: <%= @schedule.user.name%>
+</p>
+<%= render "event", event: @schedule %>
+<p>Thanks for joining and have a great day!</p>
